@@ -8,7 +8,7 @@ Du brauchst:
 - Ein Raspberry Pi 4 mit 4 GB RAM
     - Root-Rechte
     - Internetverbindung
-    - "pi" als Hauptbenutzer
+    - Pi als deinen Benutzernamen
     - Ein Ordner namens '/FTP/files' für Backups
     - **Kein** Ordner namens '/home/pi/minecraft'
 - Ein Router, auf welchem du Port-Forwarding einrichten kannst
@@ -19,7 +19,7 @@ Führe als erstes folgende Befehle aus:
 
 ```bash
 cd /home/pi
-wget -O update.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-minecraftserver/master/setup-minecraft.sh
+wget -O setup-minecraft.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-minecraftserver/master/setup-minecraft.sh
 sudo chmod +x setup-minecraft.sh
 sudo ./setup-minecraft.sh
 ```
