@@ -34,7 +34,7 @@ Bearbeite dazu deine crontab mit `crontab -e` und füge folgende Zeilen hinzu: (
 ```crontab
 0 * * * * sudo /home/pi/minecraft/backup-live.sh
 0 6 * * * sudo /home/pi/minecraft/restart.sh
-* * * * * sudo /home/pi/minecraft/save-all.sh
+* * * * * sudo /home/pi/minecraft/command.sh "save-all"
 ```
 
 Jetzt solltest du deinen Server mit `sudo /home/pi/minecraft/start.sh` starten können und musst, sofern er einmal läuft, nicht mehr dafür sorgen. Falls der Server abstürzt, sollte er versuchen, sich neu zu starten.
