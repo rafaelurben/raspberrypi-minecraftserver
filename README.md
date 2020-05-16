@@ -32,7 +32,7 @@ Ich empfehle dir ausserdem, automatische Backups einzurichten:
 Bearbeite dazu deine crontab mit `crontab -e` und füge folgende Zeilen hinzu: (Dies sind nur empfohlene Werte und können nach belieben angepasst werden.)
 
 ```crontab
-0 * * * * sudo /home/pi/minecraft/livebackup.sh
+0 * * * * sudo /home/pi/minecraft/backup-live.sh
 0 6 * * * sudo /home/pi/minecraft/restart.sh
 * * * * * sudo /home/pi/minecraft/save-all.sh
 ```
