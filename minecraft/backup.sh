@@ -4,9 +4,7 @@
 
 cd /home/pi/minecraft
 
-### Hier Variablen anpassen
 backupsavefolder="/home/pi/FTP/files"
-###
 
 # Get Worldsavename
 worldsavename=""

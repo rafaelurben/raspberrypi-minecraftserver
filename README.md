@@ -17,9 +17,30 @@ Du brauchst:
 
 Führe als erstes folgende Befehle aus:
 
-```
+```bash
 cd /home/pi
 wget -O update.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-minecraftserver/master/setup-minecraft.sh
 sudo chmod +x setup-minecraft.sh
 sudo ./setup-minecraft.sh
 ```
+
+Als nächstes solltest du in deinen Router-Einstellungen dafür sorgen, dass der Port 25565 auf dein Raspberry Pi geleitet wird. (Port forwarding) Da dies für jeden Router unterschiedlich ist, muss man entweder selber herausfinden, wie das geht, oder im Internet danach suchen.
+
+
+Ich empfehle dir ausserdem, automatische Backups einzurichten:
+
+Bearbeite dazu deine crontab mit `crontab -e` und füge folgende Zeilen hinzu: (Dies sind nur empfohlene Werte und können nach belieben angepasst werden.)
+
+```crontab
+0 * * * * sudo /home/pi/minecraft/livebackup.sh
+0 6 * * * sudo /home/pi/minecraft/restart.sh
+* * * * * sudo /home/pi/minecraft/save-all.sh
+```
+
+Jetzt solltest du deinen Server mit `sudo /home/pi/minecraft/start.sh` starten können und musst, sofern er einmal läuft, nicht mehr dafür sorgen.
+
+# Ende
+
+Falls irgendetwas nicht funktioniert, kannst du gerne ein [Issue eröffnen](https://github.com/rafaelurben/raspberrypi-minecraftserver/issues).
+
+Falls du mehr Ahnung von Bash Scripten hast als ich, kannst du gerne versuchen, die Scripts zu verbessern und einen Pull-Request zu eröffnen.
