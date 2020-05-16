@@ -4,10 +4,12 @@
 
 cd /home/pi/minecraft
 
-echo "Zur neusten Paperclip Version aktualisieren..."
+echo "Update gestartet!"
+
+echo "Update: Zur neusten Paperclip Version aktualisieren..."
 wget -q -O paperclip.jar https://papermc.io/api/v1/paper/1.15.2/latest/download
 
-echo "Dateien von GitHub herunterladen..."
+echo "Update: Dateien von GitHub herunterladen..."
 wget -q -O auto-restart.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-minecraftserver/master/minecraft/auto-restart.sh
 wget -q -O backup-live.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-minecraftserver/master/minecraft/backup-live.sh
 wget -q -O backup.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-minecraftserver/master/minecraft/backup.sh
@@ -16,7 +18,7 @@ wget -q -O start.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-mi
 wget -q -O stop.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-minecraftserver/master/minecraft/stop.sh
 wget -q -O update.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-minecraftserver/master/minecraft/update.sh
 
-echo "Dateien ausführbar machen..."
+echo "Update: Dateien ausführbar machen..."
 sudo chmod +x auto-restart.sh
 sudo chmod +x backup-live.sh
 sudo chmod +x backup.sh
@@ -24,3 +26,5 @@ sudo chmod +x command.sh
 sudo chmod +x start.sh
 sudo chmod +x stop.sh
 sudo chmod +x update.sh
+
+echo "Update beendet!"
