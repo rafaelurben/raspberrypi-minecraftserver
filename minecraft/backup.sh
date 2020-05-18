@@ -3,21 +3,24 @@
 # Backup der Minecraftwelt erstellen
 
 cd /home/pi/minecraft
-
 backupsavefolder="/home/pi/FTP/files"
 
 # Get Worldsavename
+echo "Welt wird gesucht..."
+
 worldsavename=""
 while IFS= read -r line
 do
-    if [[ $line == "level-name="* ]]; then
+    if [[ ${line} == "level-name="* ]]; then
         worldsavename=${line#"level-name="}
     fi
 done < "server.properties"
 
-if [ $worldsavename == "" ]; then
-    echo "Error: In den Servereinstellungen wurde keinen Weltnamen festgelegt!"
-    exit 0
+if [ ${worldsavename} == "" ]; then
+    echo "Fehler! In den Servereinstellungen wurde keinen Weltnamen festgelegt!"
+    exit 1
+else
+    echo "Erfolg! Welt gefunden: ${worldsavename}"
 fi
 
 datum="$(date '+%Y-%m-%d--%H-%M')"
