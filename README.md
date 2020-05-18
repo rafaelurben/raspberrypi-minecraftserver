@@ -26,7 +26,6 @@ sudo ./setup-minecraft.sh
 
 Als nächstes solltest du in deinen Router-Einstellungen dafür sorgen, dass der Port 25565 auf dein Raspberry Pi geleitet wird. (Port forwarding) Da dies für jeden Router unterschiedlich ist, muss man entweder selber herausfinden, wie das geht, oder im Internet danach suchen.
 
-
 Ich empfehle dir ausserdem, automatische Backups einzurichten:
 
 Bearbeite dazu die root crontab mit `sudo crontab -e` und füge folgende Zeilen hinzu: (Dies sind nur empfohlene Werte und können nach belieben angepasst werden.)
@@ -42,12 +41,23 @@ Erklärungen zur den oben sichtbaren Befehlen:
 
 1. Mache jede volle Stunde ein live Backup. (ohne Server-Neustart)
 2. Starte immer um 6 Uhr morgens den Server neu. (dabei wird automatisch ein Backup gemacht)
-3. Führe jede Minute den "/save-all"-Befehl aus. (damit der Datenverlust im Falle eines Serverabsturzes möglichst klein ist)
+3. Führe jede Minute den `save-all`-Befehl aus. (damit der Datenverlust im Falle eines Serverabsturzes möglichst klein ist)
 4. Starte den Server, wenn das Raspberry Pi gestartet wird.
 
-Jetzt solltest du deinen Server mit `sudo /home/pi/minecraft/start.sh` starten können und musst, sofern er einmal läuft, nicht mehr dafür sorgen. Falls der Server abstürzt, sollte er versuchen, sich neu zu starten.
+Jetzt solltest du deinen Server mit `sudo /home/pi/minecraft/start.sh` starten können und musst, sofern er einmal läuft, nicht mehr dafür sorgen. Falls der Server abstürzt, sollte er sich automatisch neustarten.
 
 Hinweis: Bitte benutze für alle Commands immer `sudo`, damit es keine "Permission Denied"-Fehlermeldungen gibt.
+
+Falls du manuell irgendetwas am Server machen willst, stehen dir folgende Befehle zur Verfügung:
+
+- `sudo ./stop.sh` - Stoppt den Server, macht ein Backup und führt ein Update aus (und deaktiviert die Absturzerkennung)
+- `sudo ./start.sh` - Startet den Server (und aktiviert die Absturzerkennung)
+- `sudo ./restart.sh` - Führt die beiden vorherigen Befehle nacheinander aus
+- `sudo ./backup.sh` - Macht ein Backup
+- `sudo ./backup-live.sh` - Macht ein Backup, während der Server online ist. (kündigt das Backup zuvor an, speichert die Welt mit `save-all` und informiert live im Chat über den Status des Backups)
+- `sudo ./command.sh "COMMAND"` - Führe einen Command auf dem Server aus (OHNE `/``, um die die Konsole zu schreiben, benutze "say DEIN TEXT")
+- `sudo ./update.sh` - Aktualisiert Paperclip (die Serversoftware) und alle Dateien aus diesem Repository.
+- `sudo screen -r minecraft` - Gelange in die Konsole (zum Verlassen, drücke CTRL+A, danach CTRL+D)
 
 # Ende
 
