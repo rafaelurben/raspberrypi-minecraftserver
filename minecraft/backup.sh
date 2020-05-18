@@ -11,7 +11,7 @@ worldsavename=""
 while IFS= read -r line
 do
     if [[ $line == "level-name="* ]]; then
-        worldname=${line#"level-name="}
+        worldsavename=${line#"level-name="}
     fi
 done < "server.properties"
 

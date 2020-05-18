@@ -16,7 +16,7 @@ do
         if pgrep -f "paperclip.jar" > /dev/null
         then
                 echo "${datum} - Minecraft Server läuft"
-                sleep 2
+                sleep 5
         else
                 echo "${datum} - Minecraft Server scheint nicht mehr zu laufen! Neustarten..."
                 sudo ./start.sh
