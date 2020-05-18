@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Backup der Minecraftwelt erstellen während der Server läuft
 

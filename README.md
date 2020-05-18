@@ -29,15 +29,25 @@ Als nächstes solltest du in deinen Router-Einstellungen dafür sorgen, dass der
 
 Ich empfehle dir ausserdem, automatische Backups einzurichten:
 
-Bearbeite dazu deine crontab mit `crontab -e` und füge folgende Zeilen hinzu: (Dies sind nur empfohlene Werte und können nach belieben angepasst werden.)
+Bearbeite dazu die root crontab mit `sudo crontab -e` und füge folgende Zeilen hinzu: (Dies sind nur empfohlene Werte und können nach belieben angepasst werden.)
 
-```crontab
+```bash
 0 * * * * sudo /home/pi/minecraft/backup-live.sh
 0 6 * * * sudo /home/pi/minecraft/restart.sh
 * * * * * sudo /home/pi/minecraft/command.sh "save-all"
+@reboot sudo ./home/pi/minecraft/start.sh
 ```
 
+Erklärungen zur den oben sichtbaren Befehlen:
+
+1. Mache jede volle Stunde ein live Backup. (ohne Server-Neustart)
+2. Starte immer um 6 Uhr morgens den Server neu. (dabei wird automatisch ein Backup gemacht)
+3. Führe jede Minute den "/save-all"-Befehl aus. (damit der Datenverlust im Falle eines Serverabsturzes möglichst klein ist)
+4. Starte den Server, wenn das Raspberry Pi gestartet wird.
+
 Jetzt solltest du deinen Server mit `sudo /home/pi/minecraft/start.sh` starten können und musst, sofern er einmal läuft, nicht mehr dafür sorgen. Falls der Server abstürzt, sollte er versuchen, sich neu zu starten.
+
+Hinweis: Bitte benutze für alle Commands immer `sudo`, damit es keine "Permission Denied"-Fehlermeldungen gibt.
 
 # Ende
 
