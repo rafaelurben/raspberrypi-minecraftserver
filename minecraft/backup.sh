@@ -30,8 +30,12 @@ echo "Backup gestartet!"
 echo "Ordner kopieren..."
 
 sudo cp -R "${worldsavename}" "${worldsavename}-backup"
-sudo cp -R "${worldsavename}_nether/DIM-1" "${worldsavename}-backup/DIM-1" 2>/dev/null
-sudo cp -R "${worldsavename}_the_end/DIM1" "${worldsavename}-backup/DIM1" 2>/dev/null
+if [ -d "${worldsavename}_nether" ]; then
+    sudo cp -R "${worldsavename}_nether/DIM-1" "${worldsavename}-backup/DIM-1" 2>/dev/null;
+fi
+if [ -d "${worldsavename}_the_end" ]; then
+    sudo cp -R "${worldsavename}_the_end/DIM1" "${worldsavename}-backup/DIM1" 2>/dev/null;
+fi
 
 echo "Ordner kopiert!"
 echo "Ordner komprimieren..."
