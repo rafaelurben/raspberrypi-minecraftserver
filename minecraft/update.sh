@@ -7,7 +7,7 @@ cd /home/pi/minecraft
 echo "Update gestartet!"
 
 echo "Update: Zur neusten Paperclip Version aktualisieren..."
-wget -q -O paperclip.jar https://papermc.io/api/v1/paper/1.15.2/latest/download
+wget -q -O paperclip.jar https://papermc.io/api/v1/paper/1.16.5/latest/download
 
 echo "Update: Dateien von GitHub herunterladen..."
 wget -q -O auto-restart.sh https://raw.githubusercontent.com/rafaelurben/raspberrypi-minecraftserver/master/minecraft/auto-restart.sh
